@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script defer type="text/javascript" src="js/lib/fontawesome-all.js"></script>
+        <title>KaitTimeTable</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="quickmode hide">
+                <div class="period">
+                    木:1限(9:30~11:00)
+                </div>
+                <hr>
+                <div class="name">
+                    C++言語
+                </div>
+                <hr>
+                <div class="room">
+                    わからん
+                </div>
+                <nav>
+                    <div class="day-wrap">
+                        <div class="before-day">
+                            前日
+                        </div>
+                        <div class="after-day">
+                            翌日
+                        </div>
+                    </div>
+                    <!--div class="help">
+                      Help
+                  </div-->
+                    <div class="class-wrap">
+                        <div class="before-class">
+                            前講義
+                        </div>
+                        <div class="after-class">
+                            次講義
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="detail-and-editmode hide">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="setting"><i class="fas fa-cog"></i></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th><th></th><th></th><th>論理回路設計<br><hr>K3-3506</th><th>C++<br><hr>わからん</th><th>基礎ユニット<br><hr>???</th>
+                        </tr>
+                        <tr>
+                            <th>2</th><th></th><th>データ構造<br><hr>K3-XXX</th><th>現社心理学<br><hr>B5-2306</th><th>英語Ⅴ<br><hr>K2-1303</th><th>基礎ユニット<br><hr>???</th>
+                        </tr>
+                        <tr>
+                            <th>3</th><th></th><th></th><th>C++<br><hr>どこ</th><th>日本語技術<br><hr>K3-3505</th><th>Web技術<br><hr>K3-3506</th>
+                        </tr>
+                        <tr>
+                            <th>4</th><th></th><th>ネットワーク基礎論<br><hr>K3-3506</th><th></th><th></th><th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="helpmode hide">
+                <section>
+                    <h1 id="basic">基本的な使い方</h1>
+                    <h2>それぞれの名前について</h2>
+                    画面下部にあるのはナビゲーションバーです。
+                    左から、『ヘルプ』『一目確認』『全体表示/編集』です。
+                    <h2>使用までの流れ</h2>
+                    まず、ナビゲーションバーから、全体表示/編集をタップします。
+
+                </section>
+                <section>
+                    <h1>操作方法</h2>
+                    <h2>ヘルプ</h2>
+                    初回起動時だけでなく、操作に迷ったときに確認できます。
+                    <h2>一目確認</h2>
+                    一目で次の講義が行われる場所やメモを確認できます。
+                    次の講義や、他の曜日の講義も確認可能です。
+                    <h2>全体表示/編集</h2>
+                </section>
+                <section>
+                    <h1 id="setting">設定について</h1>
+
+                </section>
+                <section>
+                    <h1 id="tips">登録のコツ</h1>
+                    <span>略式名を6文字以内で登録すると、全体図を表示した時に壊れにくいです。</span>
+                    <span></span>
+                </section>
+            </div>
+        </div>
+        <nav class="global">
+            <div class="switch-helpmode">
+                <i class="fas fa-question"></i>
+                <!--img src="img/ic_help_black_48px.svg" alt="help" width="48px" height="48px"-->
+            </div>
+            <div class="switch-quickmode">
+                <i class="fas fa-info"></i>
+                <!--mg src="img/ic_pageview_black_48px.svg" alt="help" width="48px" height="48px"-->
+            </div>
+            <div class="switch-detail-and-editmode">
+                <i class="far fa-calendar-alt"></i>
+                <i class="far fa-edit"></i>
+                <!--img src="img/ic_view_comfy_black_48px.svg" alt="help" width="48px" height="48px"> <img src="img/ic_mode_edit_black_48px.svg" alt="help" width="48px" height="48px"-->
+            </div>
+        </nav>
+        <script src="js/lib/dexie.min.js" type="text/javascript"></script>
+        <script src="js/uiOperation.js" type="text/javascript"></script>
+        <script src="js/setting.js" type="text/javascript"></script>
+        <script src="js/eventHandler.js" type="text/javascript"></script>
+        <script src="js/dbParser.js" type="text/javascript"></script>
+        <script src="js/dbOperation.js" type="text/javascript"></script>
+    </body>
+</html>
