@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <script defer type="text/javascript" src="js/lib/fontawesome-all.js"></script>
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <title>KaitTimeTable</title>
     </head>
     <body>
@@ -53,70 +53,67 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>1</th><th></th><th></th><th>論理回路設計<br><hr>K3-3506</th><th>C++<br><hr>わからん</th><th>基礎ユニット<br><hr>???</th>
+                            <th>1</th><th data-lectureid="0"></th><th data-lectureid="1"></th><th data-lectureid="2">論理回路設計<br><hr>K3-3506</th><th data-lectureid="3">C++<br><hr>わからん</th><th data-lectureid="4">基礎ユニット<br><hr>???</th>
                         </tr>
                         <tr>
-                            <th>2</th><th></th><th>データ構造<br><hr>K3-XXX</th><th>現社心理学<br><hr>B5-2306</th><th>英語Ⅴ<br><hr>K2-1303</th><th>基礎ユニット<br><hr>???</th>
+                            <th>2</th><th data-lectureid="10"></th><th data-lectureid="11">データ構造<br><hr>K3-XXX</th><th data-lectureid="12">現社心理学<br><hr>B5-2306</th><th data-lectureid="13">英語Ⅴ<br><hr>K2-1303</th><th data-lectureid="14">基礎ユニット<br><hr>???</th>
                         </tr>
                         <tr>
-                            <th>3</th><th></th><th></th><th>C++<br><hr>どこ</th><th>日本語技術<br><hr>K3-3505</th><th>Web技術<br><hr>K3-3506</th>
+                            <th>3</th><th data-lectureid="20"></th><th data-lectureid="21"></th><th data-lectureid="22">C++<br><hr>どこ</th><th data-lectureid="23">日本語技術<br><hr>K3-3505</th><th data-lectureid="24">Web技術<br><hr>K3-3506</th>
                         </tr>
                         <tr>
-                            <th>4</th><th></th><th>ネットワーク基礎論<br><hr>K3-3506</th><th></th><th></th><th></th>
+                            <th>4</th><th data-lectureid="30"></th><th data-lectureid="31">ネットワーク基礎論<br><hr>K3-3506</th><th data-lectureid="32"></th><th data-lectureid="33"></th><th data-lectureid="34"></th>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <form class="editUi hide">
+                <span>講義名</span>
+                <input type="text" name="lectureName" value="" autofocus><br>
+                <span>表示</span>
+                <input type="text" name="lectureShortName" value="" placeholder="6文字以下で入力" maxlength="6"><br>
+                <span>講義場所</span>
+                <input type="text" name="lectureRoom" value="" placeholder="不明は0、不定は-1を入力"><br>
+                <span>講義メモ</span><br>
+                <textarea name="lectureMemo" rows="6" cols="32"></textarea>
+                <input type="button" name="commit" value="確定">
+                <!--input type="button" name="reset"-->
+            </form>
             <div class="helpmode hide">
-                <section>
-                    <h1 id="basic">基本的な使い方</h1>
-                    <h2>それぞれの名前について</h2>
-                    画面下部にあるのはナビゲーションバーです。
-                    左から、『ヘルプ』『一目確認』『全体表示/編集』です。
-                    <h2>使用までの流れ</h2>
-                    まず、ナビゲーションバーから、全体表示/編集をタップします。
-
+                <i class="far fa-times-circle"></i>
+                <section id="sangyou">
+                    <h1>三行で使い方解説</h1>
+                    <ol>
+                        <li>右下からあなたの時間割を登録</li>
+                        <li>講義前にこのサイトを開く</li>
+                        <li>一行余った</li>
+                    </ol>
                 </section>
-                <section>
-                    <h1>操作方法</h2>
-                    <h2>ヘルプ</h2>
-                    初回起動時だけでなく、操作に迷ったときに確認できます。
-                    <h2>一目確認</h2>
-                    一目で次の講義が行われる場所やメモを確認できます。
-                    次の講義や、他の曜日の講義も確認可能です。
-                    <h2>全体表示/編集</h2>
-                </section>
-                <section>
-                    <h1 id="setting">設定について</h1>
-
-                </section>
-                <section>
-                    <h1 id="tips">登録のコツ</h1>
-                    <span>略式名を6文字以内で登録すると、全体図を表示した時に壊れにくいです。</span>
-                    <span></span>
+                <section id="detail">
+                    <h1>もちっと詳しく</h1>
+                    <h2>時間割登録</h2>
+                    右下から時間割を開き、登録したい時間で<b>ダブルタップ</b>してください。<br>
+                    登録画面が開くので、講義名・表示名・場所を登録しましょう。<br>
+                    講義で教科書や課題の案内が出たら、同様の方法で時間割を編集してメモしましょう。<br>
                 </section>
             </div>
         </div>
         <nav class="global">
             <div class="switch-helpmode">
                 <i class="fas fa-question"></i>
-                <!--img src="img/ic_help_black_48px.svg" alt="help" width="48px" height="48px"-->
             </div>
             <div class="switch-quickmode">
                 <i class="fas fa-info"></i>
-                <!--mg src="img/ic_pageview_black_48px.svg" alt="help" width="48px" height="48px"-->
             </div>
             <div class="switch-detail-and-editmode">
-                <i class="far fa-calendar-alt"></i>
                 <i class="far fa-edit"></i>
-                <!--img src="img/ic_view_comfy_black_48px.svg" alt="help" width="48px" height="48px"> <img src="img/ic_mode_edit_black_48px.svg" alt="help" width="48px" height="48px"-->
             </div>
         </nav>
         <script src="js/lib/dexie.min.js" type="text/javascript"></script>
         <script src="js/uiOperation.js" type="text/javascript"></script>
         <script src="js/setting.js" type="text/javascript"></script>
-        <script src="js/eventHandler.js" type="text/javascript"></script>
         <script src="js/dbParser.js" type="text/javascript"></script>
         <script src="js/dbOperation.js" type="text/javascript"></script>
+        <script src="js/init.js" type="text/javascript"></script>
     </body>
 </html>
