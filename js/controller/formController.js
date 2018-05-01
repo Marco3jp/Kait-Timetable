@@ -1,4 +1,4 @@
-class dbParser {
+class FormController {
     constructor(){
         this.form = document.forms.lectureInfo;
     }
@@ -9,4 +9,12 @@ class dbParser {
             "classRoom": this.form.lectureRoom.value
         };
     }
+
+    setLectureInfo(name,displayname,room){
+        this.form.lectureName.value = name;
+        this.form.lectureDisplayName.value = displayname;
+        this.form.lectureRoom.value = room;
+    }
 }
+
+let formController = new FormController();
