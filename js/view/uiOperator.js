@@ -1,19 +1,15 @@
-"use strict";
-
-var mytap = window.ontouchstart===null?"touchstart":"click";
-
-class Ui {
+class UiOperator {
     constructor(){
-        let that = this;
-        let detailMode = document.querySelector(".switch-detail-and-editmode");
-        let quickMode = document.querySelector(".switch-quickmode");
-        let helpMode = document.querySelector(".switch-helpmode");
+        const that = this;
+        const detailMode = document.querySelector(".switch-detail-and-editmode");
+        const quickMode = document.querySelector(".switch-quickmode");
+        const helpMode = document.querySelector(".switch-helpmode");
 
         this.detailModeUi = document.querySelector(".detail-and-editmode");
         this.quickModeUi = document.querySelector(".quickmode");
         this.helpModeUi = document.querySelector(".helpmode");
 
-        this.helpModeUiDisplayFlag = false;
+        //this.helpModeUiDisplayFlag = false;
         this.helpModeUiTouchFlag = false;
         this.keepUrl = "";
 
@@ -41,7 +37,8 @@ class Ui {
 
     }
 
-    switchQuickMode() {
+    switchQuickMode(id) {
+        displayLectureInfo.displayQuickMode(id);
         history.pushState( "", "", "#action=info");
         this.detailModeUi.classList.add("hide");
         this.quickModeUi.classList.remove("hide");
@@ -67,19 +64,19 @@ class Ui {
     }
 }
 
-var ui = new Ui();
+let uiOperator = new UiOperator();
 
 //なんか頭悪いので実装できない。それっぽい動きしかしない//
 window.onhashchange = function(event){
     console.log(event);
-    let hash=location.hash;
-    if(ui.helpModeUiFlag){
-        ui.switchHelpMode();
+    const hash=location.hash;
+    if(uiOperator.helpModeUiFlag){
+        uiOperator.switchHelpMode();
     }else if(hash==="#action=info"){
-        ui.switchQuickMode();
+        uiOperator.switchQuickMode();
     }else if(hash==="#action=edit"){
-        ui.switchDetailMode();
+        uiOperator.switchDetailMode();
     }else if(hash==="#action=help"){
-        ui.switchHelpMode();
+        uiOperator.switchHelpMode();
     }
-}
+};
