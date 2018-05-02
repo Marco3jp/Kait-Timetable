@@ -1,6 +1,12 @@
 class FormController {
     constructor(){
+        const that = this;
         this.form = document.forms.lectureInfo;
+        this.tap = 0;
+
+        document.querySelector(".editUi").addEventListener(mytap,function(){
+            that.closeForm();
+        })
     }
     get inputLectureInfo(){
         return {
@@ -10,10 +16,22 @@ class FormController {
         };
     }
 
-    setLectureInfo(name,displayname,room){
+    setLectureInfo(name,displayName,room){
         this.form.lectureName.value = name;
-        this.form.lectureDisplayName.value = displayname;
+        this.form.lectureDisplayName.value = displayName;
         this.form.lectureRoom.value = room;
+    }
+
+    closeForm() {
+        if (!this.tap) {
+            ++this.tap;
+            setTimeout(function (that) {
+                that.tap = 0;
+            }, 350, this);
+        } else {
+            this.tap = 0;
+            displayEditLayer.close();
+        }
     }
 }
 
