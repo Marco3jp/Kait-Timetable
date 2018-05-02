@@ -10,17 +10,17 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="quickmode hide">
+            <div class="quickmode">
                 <div class="period">
-                    木:1限(9:30~11:00)
+
                 </div>
                 <hr>
                 <div class="name">
-                    C++言語
+
                 </div>
                 <hr>
                 <div class="room">
-                    わからん
+
                 </div>
                 <nav>
                     <div class="day-wrap">
@@ -34,11 +34,11 @@
                     <!--div class="help">
                       Help
                   </div-->
-                    <div class="class-wrap">
-                        <div class="before-class">
+                    <div class="lecture-wrap">
+                        <div class="before-lecture">
                             前講義
                         </div>
-                        <div class="after-class">
+                        <div class="after-lecture">
                             次講義
                         </div>
                     </div>
@@ -53,30 +53,30 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>1</th><th data-lectureid="0"></th><th data-lectureid="1"></th><th data-lectureid="2">論理回路設計<br><hr>K3-3506</th><th data-lectureid="3">C++<br><hr>わからん</th><th data-lectureid="4">基礎ユニット<br><hr>???</th>
+                            <th>1</th><th id="0"></th><th id="1"></th><th id="2"></th><th id="3"></th><th id="4"></th>
                         </tr>
                         <tr>
-                            <th>2</th><th data-lectureid="10"></th><th data-lectureid="11">データ構造<br><hr>K3-XXX</th><th data-lectureid="12">現社心理学<br><hr>B5-2306</th><th data-lectureid="13">英語Ⅴ<br><hr>K2-1303</th><th data-lectureid="14">基礎ユニット<br><hr>???</th>
+                            <th>2</th><th id="10"></th><th id="11"></th><th id="12"></th><th id="13"></th><th id="14"></th>
                         </tr>
                         <tr>
-                            <th>3</th><th data-lectureid="20"></th><th data-lectureid="21"></th><th data-lectureid="22">C++<br><hr>どこ</th><th data-lectureid="23">日本語技術<br><hr>K3-3505</th><th data-lectureid="24">Web技術<br><hr>K3-3506</th>
+                            <th>3</th><th id="20"></th><th id="21"></th><th id="22"></th><th id="23"></th><th id="24"></th>
                         </tr>
                         <tr>
-                            <th>4</th><th data-lectureid="30"></th><th data-lectureid="31">ネットワーク基礎論<br><hr>K3-3506</th><th data-lectureid="32"></th><th data-lectureid="33"></th><th data-lectureid="34"></th>
+                            <th>4</th><th id="30"></th><th id="31"></th><th id="32"></th><th id="33"></th><th id="34"></th>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <form class="editUi hide">
+            <form name="lectureInfo" class="editUi hide">
                 <span>講義名</span>
                 <input type="text" name="lectureName" value="" autofocus><br>
-                <span>表示</span>
-                <input type="text" name="lectureShortName" value="" placeholder="6文字以下で入力" maxlength="6"><br>
-                <span>講義場所</span>
-                <input type="text" name="lectureRoom" value="" placeholder="不明は0、不定は-1を入力"><br>
+                <span>表示名</span>
+                <input type="text" name="lectureDisplayName" value="" placeholder="6文字以下で入力" maxlength="6"><br>
+                <span>教室番号</span>
+                <input type="text" name="lectureRoom" value="" placeholder="地下:Bを含む数字のみ入力"><br>
                 <span>講義メモ</span><br>
                 <textarea name="lectureMemo" rows="6" cols="32"></textarea>
-                <input type="button" name="commit" value="確定">
+                <input id="accept" type="button" name="commit" value="確定">
                 <!--input type="button" name="reset"-->
             </form>
             <div class="helpmode hide">
@@ -110,10 +110,17 @@
             </div>
         </nav>
         <script src="js/lib/dexie.min.js" type="text/javascript"></script>
-        <script src="js/view/uiOperator.js" type="text/javascript"></script>
         <script src="js/utils/setting.js" type="text/javascript"></script>
-        <script src="js/dbControler/dbParser.js" type="text/javascript"></script>
-        <script src="js/dbControler/dbOperator.js" type="text/javascript"></script>
+        <script src="js/utils/periodParser.js" type="text/javascript"></script>
+        <script src="js/utils/classRoomParser.js" type="text/javascript"></script>
+        <script src="js/view/displayEditLayer.js" type="text/javascript"></script>
+        <script src="js/view/displayLectureInfo.js" type="text/javascript"></script>
+        <script src="js/controller/dbController.js" type="text/javascript"></script>
+        <script src="js/controller/formController.js" type="text/javascript"></script>
+        <script src="js/eventListener/dbUpdateListener.js" type="text/javascript"></script>
+        <script src="js/eventListener/switchQuickView.js" type="text/javascript"></script>
+        <script src="js/eventListener/timetableTapListener.js" type="text/javascript"></script>
+        <script src="js/view/uiOperator.js" type="text/javascript"></script>
         <script src="js/utils/init.js" type="text/javascript"></script>
     </body>
 </html>
