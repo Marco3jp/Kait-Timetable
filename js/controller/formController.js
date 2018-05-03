@@ -1,12 +1,15 @@
 class FormController {
     constructor(){
         const that = this;
-        this.form = document.forms.lectureInfo;
         this.tap = 0;
 
         document.querySelector(".editUi").addEventListener(mytap,function(){
             that.closeForm();
-        })
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            that.form = document.forms.lectureInfo;
+        });
     }
     get inputLectureInfo(){
         return {
@@ -17,6 +20,7 @@ class FormController {
     }
 
     setLectureInfo(name,displayName,room){
+        console.log(name,displayName,room);
         this.form.lectureName.value = name;
         this.form.lectureDisplayName.value = displayName;
         this.form.lectureRoom.value = room;

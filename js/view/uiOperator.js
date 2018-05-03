@@ -63,8 +63,10 @@ class UiOperator {
         }
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    uiOperator = new UiOperator();
+});
 
-let uiOperator = new UiOperator();
 
 //なんか頭悪いので実装できない。それっぽい動きしかしない//
 window.onhashchange = function(event){
