@@ -1,15 +1,22 @@
 class ClassRoomParser {
     parse(a) {
-        if (typeof(a)==="string"){
+
+        if (a === "string" && (a.slice(0,1)==="B" || a.slice(0,1)==="b")){
             return "K1-"+a;
-        }else if(Math.floor(a/1000) === 2){
-            return "B5-"+a.toString();
-        }else if(a <= 1201){
-            return "K1-"+a.toString();
-        }else if(Math.floor(a/1000) === 3){
-            return "K3-"+a.toString();
-        }else if(Math.floor(a/1000) === 1 && a>=1300){
-            return "K2-"+a.toString();
+        }
+
+        let intValue = parseInt(a,10);
+
+        if(isNaN(intValue)){
+            return "Invalid Room(ErrorNum:01)"
+        }else if(Math.floor(intValue/1000) === 2){
+            return "B5-"+a;
+        }else if(intValue <= 1201){
+            return "K1-"+a;
+        }else if(Math.floor(intValue/1000) === 3){
+            return "K3-"+a;
+        }else if(Math.floor(intValue/1000) === 1 && intValue>=1300){
+            return "K2-"+a;
         }else{
             return "Void Room(ErrorNum:00)"
         }
