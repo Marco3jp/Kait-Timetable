@@ -7,8 +7,8 @@ class DbController {
     }
 
     async getLectureInfo(id){
-        let value = {};
         return await this.db.lectureInfo.get(id, info => {
+            let value = {};
             console.log(info);
             if(infoErrHandler.isErrInfo(info)){
                 value = {"noData":true};
