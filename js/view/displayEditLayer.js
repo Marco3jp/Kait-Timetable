@@ -5,7 +5,7 @@ class DisplayEditLayer {
     }
 
     open(self){
-        this.insertDataToForm(self.id);
+        this.insertDataToForm(self.dataset.id);
         this.setDataElement(self.dataset.id);
         this.editLayer.classList.remove("hide");
     }
@@ -23,16 +23,16 @@ class DisplayEditLayer {
         let info = {};
         dbController.getLectureInfo(id).then(v =>{
             info = v;
+            console.log(info);
+            if(info.noData){
+                formController.setLectureInfo("","","");
+            }else{
+                let name = infoErrHandler.isUndefined(info.name) ? "" : info.name;
+                let displayName = infoErrHandler.isUndefined(info.displayName) ? "" : info.displayName;
+                let classRoom = infoErrHandler.isUndefined(info.classRoom) ? "" : info.classRoom;
+                formController.setLectureInfo(name,displayName,classRoom);
+            }
         });
-        console.log(info);
-        if(info.noData){
-            formController.setLectureInfo("","","");
-        }else{
-            let name = info.name === "undefined" ? "" : info.name;
-            let displayName = info.displayName === "undefined" ? "" : info.displayName;
-            let classRoom = info.classRoom === "undefined" ? "" : info.classRoom;
-            formController.setLectureInfo(name,displayName,classRoom);
-        }
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
