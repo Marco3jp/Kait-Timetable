@@ -32,22 +32,19 @@ class SwitchQuickView {
     }
 
     switchAfterDay(){
-        const id = (Math.floor(periodParser.id/10)*10)+10;
-        periodParser.id = periodParser.idCheck(id);
+        periodParser.id = periodParser.idCheck((Math.floor(periodParser.id/10)*10)+10);
         displayLectureInfo.displayQuickMode(periodParser.id);
     }
 
     switchBeforeLecture(){
-        if(periodParser.id%10){
-            const id = periodParser.id-1;
-            periodParser.id = periodParser.idCheck(id);
+        if(Math.floor(periodParser.id%10)){
+            periodParser.id = periodParser.idCheck(periodParser.id-1);
             displayLectureInfo.displayQuickMode(periodParser.id);
         }
     }
 
     switchAfterLecture(){
-        const id = periodParser.id+1;
-        periodParser.id = periodParser.idCheck(id);
+        periodParser.id = periodParser.idCheck(periodParser.id + 1);
         displayLectureInfo.displayQuickMode(periodParser.id);
     }
 }
