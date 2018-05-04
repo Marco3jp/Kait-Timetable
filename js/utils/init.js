@@ -2,6 +2,7 @@ class Init {
     constructor() {
         document.addEventListener('DOMContentLoaded', function() {
             history.replaceState( "", "", "#action=info");
+            displayLectureInfo.displayQuickMode(periodParser.id);
             displayLectureInfo.displayEditModeAllCell();
             if(document.cookie !== "first-boot=false" ){
                 document.cookie = "first-boot=false;max-age=126144000";
