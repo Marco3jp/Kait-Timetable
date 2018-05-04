@@ -17,7 +17,7 @@ class UiOperator {
             that.switchDetailMode();
         });
         quickMode.addEventListener(mytap,function(){
-            that.switchQuickMode();
+            that.switchQuickMode(periodParser.id);
         });
         helpMode.addEventListener(mytap,function(){
             that.switchHelpMode();
