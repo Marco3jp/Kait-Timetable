@@ -1,39 +1,38 @@
 class DisplayLectureInfo {
     constructor(){
-        this.period = document.querySelector(".period").textContent;
-        this.name = document.querySelector(".name").textContent;
-        this.classRoom = document.querySelector(".room").textContent;
+        this.period = document.querySelector(".period");
+        this.name = document.querySelector(".name");
+        this.classRoom = document.querySelector(".room");
     }
 
     displayQuickMode(id) {
-        let info = {};
-        dbController.getLectureInfo(id).then(v =>{
-            info = v;
-        });
-        if(info.noData){
-            this.name = "授業なし";
-            this.classRoom = "";
-        }else{
-            this.name = infoErrHandler.isUndefined(info.displayName) ? "授業なし" : info.displayName;
-            this.classRoom = infoErrHandler.isUndefined(info.classRoom) ? "" : classRoomParser.parse(info.classRoom);
-            // undefined時、空文字列の挿入
-        }
+        dbController.getLectureInfo(id).then(info =>{
+            console.log(info);
+            if(info.noData){
+                this.name.textContent = "授業なし";
+                this.classRoom.textContent = "";
+            }else{
+                this.name.textContent = infoErrHandler.isUndefined(info.displayName) ? "授業なし" : info.displayName;
+                this.classRoom.textContent = infoErrHandler.isUndefined(info.classRoom) ? "" : classRoomParser.parse(info.classRoom);
+                // undefined時、空文字列の挿入
+            }
 
-        switch (id % 10){
-            case 0 : this.period = "一限目(9:30〜11:00)" ; break;
-            case 1 : this.period = "二限目(11:10〜12:40)" ; break;
-            case 2 : this.period = "三限目(13:20〜14:50)" ; break;
-            case 3 : this.period = "四限目(15:00〜16:30)" ; break;
-            case 4 : this.period = "五限目(16:40〜18:10)" ; break;
-        }
+            switch (id % 10){
+                case 0 : this.period.textContent = "一限目(9:30〜11:00)" ; break;
+                case 1 : this.period.textContent = "二限目(11:10〜12:40)" ; break;
+                case 2 : this.period.textContent = "三限目(13:20〜14:50)" ; break;
+                case 3 : this.period.textContent = "四限目(15:00〜16:30)" ; break;
+                case 4 : this.period.textContent = "五限目(16:40〜18:10)" ; break;
+            }
+        });
     }
 
     displayEditModeOneCell(id){
         let info = {};
         dbController.getLectureInfo(id).then(v => {
             info = v;
+            this.displayCell(info);
         });
-        this.displayCell(info);
     }
 
     displayEditModeAllCell(){
