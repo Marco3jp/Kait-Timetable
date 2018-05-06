@@ -23,28 +23,24 @@ class SwitchQuickView {
     }
 
     switchBeforeDay(){
-        let id = (Math.floor(periodParser.id/10)*10)-10;
-        if(id < 0){
-            id = saturdayFlag ? 50 : 40 ;
-        }
-        periodParser.id = periodParser.idCheck(id);
-        displayLectureInfo.displayQuickMode(periodParser.id);
-    }
-
-    switchAfterDay(){
-        periodParser.id = periodParser.idCheck((Math.floor(periodParser.id/10)*10)+10);
-        displayLectureInfo.displayQuickMode(periodParser.id);
-    }
-
-    switchBeforeLecture(){
         if(Math.floor(periodParser.id%10)){
-            periodParser.id = periodParser.idCheck(periodParser.id-1);
+            periodParser.id = periodParser.idCheck(periodParser.id - 1);
             displayLectureInfo.displayQuickMode(periodParser.id);
         }
     }
 
-    switchAfterLecture(){
+    switchAfterDay(){
         periodParser.id = periodParser.idCheck(periodParser.id + 1);
+        displayLectureInfo.displayQuickMode(periodParser.id);
+    }
+
+    switchBeforeLecture(){
+        periodParser.id = periodParser.idCheck(periodParser.id - 10);
+        displayLectureInfo.displayQuickMode(periodParser.id);
+    }
+
+    switchAfterLecture(){
+        periodParser.id = periodParser.idCheck(periodParser.id + 10);
         displayLectureInfo.displayQuickMode(periodParser.id);
     }
 }
