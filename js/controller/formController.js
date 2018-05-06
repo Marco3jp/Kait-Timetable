@@ -20,7 +20,6 @@ class FormController {
     }
 
     setLectureInfo(name,displayName,room){
-        console.log(name,displayName,room);
         this.form.lectureName.value = name;
         this.form.lectureDisplayName.value = displayName;
         this.form.lectureRoom.value = room;

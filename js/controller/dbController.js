@@ -7,14 +7,18 @@ class DbController {
     }
 
     async getLectureInfo(id){
+        if (typeof id === "number"){
+            id = id.toString();
+        }
+
         return await this.db.lectureInfo.get(id, info => {
             let value = {};
-            console.log(info);
             if(infoErrHandler.isErrInfo(info)){
                 value = {"noData":true};
             }else{
                 value = {
                     "noData" : false,
+                    "id" : info.id,
                     "name" : info.name,
                     "displayName" : info.displayName,
                     "classRoom" : info.classRoom,
@@ -26,7 +30,6 @@ class DbController {
 
     async getAllLectureInfo(){
         return await this.db.lectureInfo.toArray().then(value => {
-            console.log(value);
             return value;
         });
     }
@@ -40,7 +43,6 @@ class DbController {
             displayName:info.displayName,
             classRoom:info.classRoom
         })
-        console.log("さくせす！！");
         //console.log(this.getLectureInfo(id));
     }
 }

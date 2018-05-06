@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //なんか頭悪いので実装できない。それっぽい動きしかしない//
 window.onhashchange = function(event){
-    console.log(event);
     const hash=location.hash;
     if(uiOperator.helpModeUiFlag){
         uiOperator.switchHelpMode();

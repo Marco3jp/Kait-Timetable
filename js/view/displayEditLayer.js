@@ -1,6 +1,5 @@
 class DisplayEditLayer {
     constructor(){
-        //const that = this;
         this.editLayer = document.querySelector(".editUi");
     }
 
@@ -23,7 +22,6 @@ class DisplayEditLayer {
         let info = {};
         dbController.getLectureInfo(id).then(v =>{
             info = v;
-            console.log(info);
             if(info.noData){
                 formController.setLectureInfo("","","");
             }else{
