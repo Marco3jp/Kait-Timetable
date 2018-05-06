@@ -17,8 +17,9 @@ class TimetableTapListener {
         if( !this.tapCount[self.dataset.id] ) {
             ++this.tapCount[self.dataset.id];
             this.timeoutId = setTimeout( function(that) {
-                that.tapCount[self.dataset.id]= 0;
-                uiOperator.switchQuickMode(self.dataset.id);
+                that.tapCount[self.dataset.id] = 0;
+                periodParser.id = parseInt(self.dataset.id,10);
+                uiOperator.switchQuickMode(periodParser.id);
             }, 350 ,this);
         } else {
             window.clearTimeout(this.timeoutId);
